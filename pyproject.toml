@@ -16,4 +16,7 @@ dependencies = ["numpy>=1.24", "scipy>=1.10"]
 dev = ["pytest", "pytest-cov", "jupyter"]
 
 [tool.setuptools]
-packages = ["vessel_fuel"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["vessel_fuel", "vessel_fuel.*"]

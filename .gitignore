@@ -27,3 +27,6 @@ htmlcov/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Generated experiment artifacts
+outputs/

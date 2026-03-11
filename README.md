@@ -34,6 +34,22 @@ Proposed upgrade direction implemented here:
 pip install vessel-fuel-model
 ```
 
+For full reproducible experiments:
+
+
+```bash
+pip install -e ".[dev]"
+# Synthetic benchmark (reproducible)
+python scripts/run_research_benchmark.py --use-synthetic --seed 42 --out outputs/repro
+# Real-data benchmark (requires CSVs)
+python scripts/run_research_benchmark.py \
+	--ais data/ais_segments.csv \
+	--metocean data/metocean.csv \
+	--vessels data/vessel_particulars.csv \
+	--noon data/noon_reports.csv \
+	--seed 42 --out outputs/real
+```
+
 ## Quick example
 
 ```python
@@ -91,6 +107,58 @@ print(components["calm_water_resistance_n"], components["total_fuel_mt"])
 - Add per-component calibration factors and calibration quality metrics
 - Add benchmark-style tests for calm, adverse, slow-steaming, and fouling cases
 
+## Research framework (hybrid + uncertainty)
+
+The framework includes:
+
+- Hybrid residual learning: $\hat{F} = F_{physics} + f_{ML}(x)$
+- Strict train/validation/test split by vessel class, route, and season
+- Benchmarks: speed-power, pure ML, physics-only, hybrid
+- Uncertainty: split-conformal prediction intervals
+- Sensitivity ranking: permutation-based delta-MAE
+- Ablation study by feature-block removal
+- Experiment tracking with fixed random seeds
+
+Real-data fusion helpers are available for AIS, metocean, vessel particulars, and noon/engine reports:
+
+```python
+from vessel_fuel import (
+	load_ais_segments,
+	load_metocean,
+	load_vessel_particulars,
+	load_engine_noon,
+	fuse_operational_data,
+	clean_observations,
+)
+
+ais = load_ais_segments("data/ais_segments.csv")
+met = load_metocean("data/metocean.csv")
+ves = load_vessel_particulars("data/vessel_particulars.csv")
+noon = load_engine_noon("data/noon_reports.csv")
+dataset = clean_observations(fuse_operational_data(ais, met, ves, noon))
+```
+
+
+Generated outputs (in the specified --out directory):
+
+- `results_table.csv` (RMSE, MAE, MAPE, bias, $R^2$)
+- `significance.json` (paired bootstrap tests)
+- `prediction_intervals.csv`
+- `sensitivity_ranking.csv`
+- `ablation_table.csv`
+- `summary.json`
+- `cli_summary.json` (top-level summary for CLI runs)
+
+Example command to reproduce all outputs:
+
+```bash
+python scripts/run_research_benchmark.py --use-synthetic --seed 42 --out outputs/repro
+```
+
+## Publication package
+
+Draft artifacts are included in [docs/paper/methods.md](docs/paper/methods.md), [docs/paper/experiment_protocol.md](docs/paper/experiment_protocol.md), [docs/paper/limitations_future_work.md](docs/paper/limitations_future_work.md), and [docs/paper/figure_captions.md](docs/paper/figure_captions.md).
+
 ## References
 
 - Holtrop, J., and Mennen, G. G. J. (1982, 1984)
@@ -113,4 +181,4 @@ Jean d'Amour Umuhoza (2026), vessel-fuel-model, Université du Québec à Chicou
 
 Author ORCID: https://orcid.org/0009-0008-7067-8817
 
-DOI: to be added.
+DOI: to be added. (Replace with your DOI when available)
