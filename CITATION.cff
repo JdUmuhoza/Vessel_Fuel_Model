@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: vessel-fuel-model
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Umuhoza
+    given-names: Jean d'Amour
+    orcid: https://orcid.org/0009-0008-7067-8817
+repository-code: https://github.com/JdUmuhoza/Vessel_Fuel_Model
+abstract: Physics-based maritime fuel consumption model for academic and research use.
+keywords:
+  - maritime
+  - vessel
+  - fuel-consumption
+  - resistance-model
+  - python
+license: Academic Non-Commercial
+version: 0.1.0
+date-released: 2026-03-11

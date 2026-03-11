@@ -110,3 +110,7 @@ This project is released under an academic non-commercial license. Commercial us
 If you use this library in publications, please cite:
 
 Jean d'Amour Umuhoza (2026), vessel-fuel-model, Université du Québec à Chicoutimi (UQAC).
+
+Author ORCID: https://orcid.org/0009-0008-7067-8817
+
+DOI: to be added.
