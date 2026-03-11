@@ -11,7 +11,7 @@ from vessel_fuel.model import fuel_model
 
 
 class SpeedPowerBaseline:
-    """Simple speed-power baseline: $F = a\,d\,v^b$."""
+    r"""Simple speed-power baseline: $F = a\,d\,v^b$."""
 
     def __init__(self) -> None:
         self.a = 1.0
@@ -97,7 +97,7 @@ class PureMLModel:
 
 
 class HybridResidualModel:
-    """Hybrid model: $\hat{F} = F_{physics} + f_{ML}(x)$."""
+    r"""Hybrid model: $\hat{F} = F_{physics} + f_{ML}(x)$."""
 
     def __init__(self, reg_lambda: float = 0.03, physics_calib: dict[str, float] | None = None) -> None:
         self.reg = _RidgeRegressor(lam=reg_lambda)

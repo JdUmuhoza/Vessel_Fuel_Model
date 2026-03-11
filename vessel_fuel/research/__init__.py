@@ -8,11 +8,16 @@ from .data_pipeline import (
     split_train_val_test,
 )
 from .ingest import (
+    align_and_merge_temporal_data,
+    download_copernicus_era5,
+    download_gebco_bathymetry,
+    download_noaa_ais_archive,
     fuse_operational_data,
     load_ais_segments,
     load_engine_noon,
     load_metocean,
     load_vessel_particulars,
+    validate_data_schema,
 )
 from .hybrid import HybridResidualModel, PhysicsOnlyModel, PureMLModel, SpeedPowerBaseline
 from .tracking import ExperimentTracker
@@ -29,6 +34,11 @@ __all__ = [
     "load_vessel_particulars",
     "load_engine_noon",
     "fuse_operational_data",
+    "download_noaa_ais_archive",
+    "download_copernicus_era5",
+    "download_gebco_bathymetry",
+    "align_and_merge_temporal_data",
+    "validate_data_schema",
     "HybridResidualModel",
     "PhysicsOnlyModel",
     "PureMLModel",

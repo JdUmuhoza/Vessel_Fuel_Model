@@ -50,6 +50,26 @@ python scripts/run_research_benchmark.py \
 	--seed 42 --out outputs/real
 ```
 
+## Getting Started with Real Data
+
+Quick start with automatic free-data acquisition:
+
+```bash
+python scripts/run_research_benchmark.py \
+	--fetch-data \
+	--region north_atlantic \
+	--start-date 2024-01-01T00:00:00Z \
+	--end-date 2024-01-07T23:00:00Z \
+	--seed 42 \
+	--out outputs/repro
+```
+
+Manual sourcing and formatting guide:
+
+- [docs/data_acquisition.md](docs/data_acquisition.md)
+
+The auto-fetch path downloads AIS/metocean/bathymetry from free public sources and can generate deterministic proxy vessel/noon files when proprietary engine logs are unavailable.
+
 ## Quick example
 
 ```python

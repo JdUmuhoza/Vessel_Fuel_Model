@@ -181,7 +181,7 @@ def split_train_val_test(
 
 
 def generate_synthetic_operational_dataset(n_samples: int = 1500, seed: int = 42) -> list[dict[str, Any]]:
-    """Generate synthetic AIS-like records with latent residual structure.
+    r"""Generate synthetic AIS-like records with latent residual structure.
 
     The target is created as:
     $y = y_{physics} + f_{residual}(x) + \epsilon$.

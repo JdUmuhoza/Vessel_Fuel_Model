@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "vessel-fuel-model"
 version = "0.1.0"
 description = "Physics-based maritime fuel consumption model for research"
-authors = [{name = "Jean d'Amour Umuhoza", email = "YOUR_EMAIL"}]
+authors = [{name = "Jean d'Amour Umuhoza", email = "jean.amour.umuhoza@uqac.ca"}]
 license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"

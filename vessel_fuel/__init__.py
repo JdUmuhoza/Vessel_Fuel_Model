@@ -1,5 +1,12 @@
 """vessel-fuel-model public API."""
 
+from .current import (
+    current_induced_resistance,
+    current_vector_component,
+    fuel_savings_from_current,
+    speed_over_ground,
+    transit_time_hours,
+)
 from .engine import auxiliary_fuel, boiler_fuel, sfoc_curve
 from .environment import sw_density, sw_viscosity
 from .fouling import fouling_delta_cf
@@ -15,9 +22,13 @@ from .research import (
     PhysicsOnlyModel,
     PureMLModel,
     SpeedPowerBaseline,
+    align_and_merge_temporal_data,
     build_feature_matrix,
     clean_observations,
     conformal_interval,
+    download_copernicus_era5,
+    download_gebco_bathymetry,
+    download_noaa_ais_archive,
     generate_synthetic_operational_dataset,
     fuse_operational_data,
     load_ais_segments,
@@ -27,6 +38,7 @@ from .research import (
     permutation_sensitivity,
     run_benchmark_suite,
     split_train_val_test,
+    validate_data_schema,
 )
 
 __all__ = [
@@ -45,6 +57,11 @@ __all__ = [
     "blendermann_wind_resistance",
     "stawave1_resistance",
     "kwon_resistance",
+    "current_vector_component",
+    "speed_over_ground",
+    "transit_time_hours",
+    "current_induced_resistance",
+    "fuel_savings_from_current",
     "run_benchmark_suite",
     "build_feature_matrix",
     "clean_observations",
@@ -54,6 +71,11 @@ __all__ = [
     "load_vessel_particulars",
     "load_engine_noon",
     "fuse_operational_data",
+    "download_noaa_ais_archive",
+    "download_copernicus_era5",
+    "download_gebco_bathymetry",
+    "align_and_merge_temporal_data",
+    "validate_data_schema",
     "split_train_val_test",
     "HybridResidualModel",
     "PhysicsOnlyModel",
