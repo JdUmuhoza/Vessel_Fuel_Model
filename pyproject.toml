@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vessel-fuel-model"
+version = "0.1.0"
+description = "Physics-based maritime fuel consumption model for research"
+authors = [{name = "Jean d'Amour Umuhoza", email = "YOUR_EMAIL"}]
+license = {text = "Academic Non-Commercial"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "jupyter"]
+
+[tool.setuptools]
+packages = ["vessel_fuel"]
