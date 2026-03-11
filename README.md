@@ -171,7 +171,7 @@ Draft artifacts are included in [docs/paper/methods.md](docs/paper/methods.md), 
 
 ## License
 
-This project is released under an academic non-commercial license. Commercial use requires written permission from the author.
+This project is released under the MIT License. See [LICENSE](LICENSE) for full terms.
 
 ## Citation
 
